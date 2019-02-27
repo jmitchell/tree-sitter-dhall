@@ -185,7 +185,8 @@ module.exports = grammar({
       repeat1($._whitespace_chunk),
     // ; Uppercase or lowercase ASCII letter,
     ALPHA: $ =>
-      choice(/[\u0041-\u005A]/, /[\u0061-\u007A]/),
+      choice("A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z",
+	     "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"),
     // ; ASCII digit,
     DIGIT: $ =>
       choice("0", "1", "2", "3", "4", "5", "6", "7", "8", "9"),

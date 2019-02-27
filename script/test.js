@@ -11,8 +11,13 @@ const test_suite = (spawn_parser) => {
   };
 
   const ignoredTests = [
-    './dhall-lang/tests/parser/failure/incompleteIf.dhall', // infinite loop?
-    './dhall-lang/tests/parser/failure/doubleBounds*.dhall' // bounded doubles?
+    // See breaking changes to Double magnitude introduced in
+    // dhall-lang v4.0.0. https://github.com/dhall-lang/dhall-lang/blob/master/CHANGELOG.md#v400
+    //
+    // Users of this parser are responsible for supporting the
+    // IEEE-754 binary64 when reifying the syntactic representation to
+    // a numerical value.
+    './dhall-lang/tests/parser/failure/doubleBounds*.dhall'
   ];
 
   const glob_opts = { nodir: true, ignore: ignoredTests };
