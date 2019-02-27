@@ -45,7 +45,6 @@ module.exports = grammar({
     [$.Text],
     [$.close_angle],
     [$.http_raw],
-    [$.dec_octet, $.unreserved],
     [$.import_hashed],
     [$.path_component],
     [$.bash_environment_variable],
@@ -189,9 +188,13 @@ module.exports = grammar({
       choice(/[\u0041-\u005A]/, /[\u0061-\u007A]/),
     // ; ASCII digit,
     DIGIT: $ =>
-      /[\u0030-\u0039]/,
+      choice("0", "1", "2", "3", "4", "5", "6", "7", "8", "9"),
     HEXDIG: $ =>
-      choice($.DIGIT, "A", "B", "C", "D", "E", "F"),
+      // dhall.abnf doesn't support lower-case hex, but they're
+      // commonly used.
+      //
+      // See https://github.com/dhall-lang/dhall-lang/issues/389
+      choice($.DIGIT, "A", "B", "C", "D", "E", "F", "a", "b", "c", "d", "e", "f"),
     // ; A simple label cannot be one of the following reserved names:,
     // ;,
     // ; * Bool,
@@ -552,7 +555,12 @@ module.exports = grammar({
       seq($.dec_octet, ".", $.dec_octet, ".", $.dec_octet, ".", $.dec_octet),
     // ; NOTE: Backtrack when parsing these alternatives and try them in reverse order,
     dec_octet: $ =>
-      choice($.DIGIT, seq(/[\u0031-\u0039]/, $.DIGIT), seq("1", seq($.DIGIT, $.DIGIT)), seq("2", /[\u0030-\u0034]/, $.DIGIT), seq("25", /[\u0030-\u0035]/)),
+      prec(1, choice(
+	$.DIGIT,
+	seq(choice("1", "2", "3", "4", "5", "6", "7", "8", "9"), $.DIGIT),
+	seq("1", seq($.DIGIT, $.DIGIT)),
+	seq("2", choice("0", "1", "2", "3", "4"), $.DIGIT),
+	seq("25", choice("0", "1", "2", "3", "4", "5")))),
     pchar: $ =>
       choice($.unreserved, $.pct_encoded, $.sub_delims, ":", "@"),
     pct_encoded: $ =>

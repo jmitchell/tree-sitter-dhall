@@ -44,9 +44,7 @@ const test_suite = (spawn_parser) => {
     test_files([].concat(...invalid_files), false);
 
     console.debug(metrics);
-    if (metrics.fail.length >= 0) {
-	process.exit(1);
-    };
+    process.exit(metrics.fail.length === 0 ? 0 : 1);
 };
 
 test_suite(file => spawnSync('npm', ['run', 'tree-sitter', '--', 'parse', file, '--quiet', '--time']));
