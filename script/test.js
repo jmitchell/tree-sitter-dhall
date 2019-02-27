@@ -6,7 +6,7 @@ const glob = require('glob');
 const test_suite = (spawn_parser) => {
     let metrics = {
     	pass: 0,
-    	fail: 0
+    	fail: []
     };
 
     const parse_file = (path, expecting_parse=true) => {
@@ -20,7 +20,7 @@ const test_suite = (spawn_parser) => {
 	    metrics.pass += 1;
 	    result = '\x1b[32mPASS\x1b[0m';
 	} else {
-	    metrics.fail += 1;
+	    metrics.fail.push(path);
 	    result = '\x1b[31mFAIL\x1b[0m';
 	}
 	const output = parse.stdout.toString();
@@ -42,7 +42,11 @@ const test_suite = (spawn_parser) => {
 
     test_files([].concat(...valid_files));
     test_files([].concat(...invalid_files), false);
+
     console.debug(metrics);
+    if (metrics.fail.length >= 0) {
+	process.exit(1);
+    };
 };
 
 test_suite(file => spawnSync('npm', ['run', 'tree-sitter', '--', 'parse', file, '--quiet', '--time']));
