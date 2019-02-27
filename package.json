@@ -9,7 +9,7 @@
   "main": "index.js",
   "scripts": {
     "build": "tree-sitter generate && node-gyp build",
-    "test": "./script/test.sh",
+    "test": "./script/test.js",
     "tree-sitter": "tree-sitter"
   },
   "keywords": [
@@ -22,6 +22,7 @@
     "nan": "^2.12.1"
   },
   "devDependencies": {
+    "glob": "^7.1.3",
     "tree-sitter-cli": "^0.14.4"
   }
 }
