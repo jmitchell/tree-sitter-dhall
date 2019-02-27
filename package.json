@@ -1,0 +1,26 @@
+{
+  "name": "tree-sitter-dhall",
+  "version": "0.0.0",
+  "description": "Dhall grammar for tree-sitter",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jmitchell/tree-sitter-dhall.git"
+  },
+  "main": "index.js",
+  "scripts": {
+    "build": "tree-sitter generate && node-gyp build",
+    "test": "find ./dhall-lang/Prelude -type f | xargs tree-sitter parse --quiet --time"
+  },
+  "keywords": [
+    "parser",
+    "lexer"
+  ],
+  "author": "Jacob Mitchell",
+  "license": "MIT",
+  "dependencies": {
+    "nan": "^2.12.1"
+  },
+  "devDependencies": {
+    "tree-sitter-cli": "^0.14.4"
+  }
+}
