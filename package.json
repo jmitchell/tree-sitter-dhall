@@ -9,7 +9,8 @@
   "main": "index.js",
   "scripts": {
     "build": "tree-sitter generate && node-gyp build",
-    "test": "find ./dhall-lang/Prelude -type f | xargs tree-sitter parse --quiet --time"
+    "test": "./script/test.sh",
+    "tree-sitter": "tree-sitter"
   },
   "keywords": [
     "parser",
