@@ -5,7 +5,7 @@ const directory = $ => repeat($.path_component);
 const authority = $ => seq(optional(seq(userinfo($), "@")), host($), optional(seq(":", port($))));
 const userinfo = $ => repeat(choice($.unreserved, $.pct_encoded, $.sub_delims, ":"));
 const host = $ => choice($.IP_literal, $.IPv4address, reg_name($));
-const port = $ => repeat($.DIGIT);
+const port = $ => repeat($._DIGIT);
 const reg_name = $ => repeat(choice($.unreserved, $.pct_encoded, $.sub_delims));
 const query = $ => repeat(choice($.pchar, "/", "?"));
 const fragment = $ => repeat(choice($.pchar, "/", "?"));
@@ -184,14 +184,14 @@ module.exports = grammar({
     _nonempty_whitespace: $ =>
       repeat1($._whitespace_chunk),
     // ; Uppercase or lowercase ASCII letter,
-    ALPHA: $ =>
+    _ALPHA: $ =>
       choice("A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z",
 	     "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"),
     // ; ASCII digit,
-    DIGIT: $ =>
+    _DIGIT: $ =>
       choice("0", "1", "2", "3", "4", "5", "6", "7", "8", "9"),
-    HEXDIG: $ =>
-      choice($.DIGIT, "A", "B", "C", "D", "E", "F", "a", "b", "c", "d", "e", "f"),
+    _HEXDIG: $ =>
+      choice($._DIGIT, "A", "B", "C", "D", "E", "F", "a", "b", "c", "d", "e", "f"),
     // ; A simple label cannot be one of the following reserved names:,
     // ;,
     // ; * Bool,
@@ -239,9 +239,9 @@ module.exports = grammar({
     // ; * merge,
     // ; * Some,
     simple_label: $ =>
-      seq(choice($.ALPHA, "_"), repeat(choice($.ALPHA, $.DIGIT, "-", "/", "_"))),
+      seq(choice($._ALPHA, "_"), repeat(choice($._ALPHA, $._DIGIT, "-", "/", "_"))),
     quoted_label: $ =>
-      repeat1(choice($.ALPHA, $.DIGIT, "-", "/", "_", ":", ".", "$")),
+      repeat1(choice($._ALPHA, $._DIGIT, "-", "/", "_", ":", ".", "$")),
     // ; NOTE: Dhall does not support Unicode labels, mainly to minimize the potential,
     // ; for code obfuscation,
     label: $ =>
@@ -281,8 +281,7 @@ module.exports = grammar({
     // ; > containing only the G clef character (U+1D11E) may be represented as,
     // ; > "\uD834\uDD1E".,
     double_quote_chunk: $ =>
-      // choice(seq("${", $.complete_expression, "}"), seq("\x5C", choice("\x22", "\x24", "\x5C", "\x2F", "\x62", "\x66", "\x6E", "\x72", "\x74", seq("\x75", seq($.HEXDIG, $.HEXDIG, $.HEXDIG, $.HEXDIG)))), /[\u0020-\u0021]/, /[\u0023-\u005B]/, /[\u005D-\uD7FF]/),
-      choice(seq("${", $.complete_expression, "}"), seq("\x5C", choice("\x22", "\x24", "\x5C", "\x2F", "\x62", "\x66", "\x6E", "\x72", "\x74", seq("\x75", seq($.HEXDIG, $.HEXDIG, $.HEXDIG, $.HEXDIG)))), /[\x20-\x21]/, /[\x23-\x5B]/, /[\x5D-\uD7FF]/),
+      choice(seq("${", $.complete_expression, "}"), seq("\x5C", choice("\x22", "\x24", "\x5C", "\x2F", "\x62", "\x66", "\x6E", "\x72", "\x74", seq("\x75", seq($._HEXDIG, $._HEXDIG, $._HEXDIG, $._HEXDIG)))), /[\x20-\x21]/, /[\x23-\x5B]/, /[\x5D-\uD7FF]/),
     double_quote_literal: $ =>
       seq("\x22", repeat($.double_quote_chunk), "\x22"),
     // ; NOTE: The only way to end a single-quote string literal with a single quote is,
@@ -490,11 +489,11 @@ module.exports = grammar({
     arrow: $ =>
       seq(choice("\u2192", "->"), whitespace($)),
     exponent: $ =>
-      seq("e", optional(choice("+", "-")), repeat1($.DIGIT)),
+      seq("e", optional(choice("+", "-")), repeat1($._DIGIT)),
     double_literal: $ =>
-      seq(optional(choice("+", "-")), repeat1($.DIGIT), choice(seq(".", repeat1($.DIGIT), optional($.exponent)), $.exponent), whitespace($)),
+      seq(optional(choice("+", "-")), repeat1($._DIGIT), choice(seq(".", repeat1($._DIGIT), optional($.exponent)), $.exponent), whitespace($)),
     natural_literal_raw: $ =>
-      repeat1($.DIGIT),
+      repeat1($._DIGIT),
     integer_literal: $ =>
       seq(choice("+", "-"), $.natural_literal_raw, whitespace($)),
     natural_literal: $ =>
@@ -502,9 +501,9 @@ module.exports = grammar({
     identifier: $ =>
       seq($.label, optional(seq($.at, $.natural_literal_raw, whitespace($)))),
     identifier_reserved_prefix: $ =>
-      seq($.reserved_raw, repeat1(choice($.ALPHA, $.DIGIT, "-", "/", "_")), whitespace($), optional(seq($.at, $.natural_literal_raw, whitespace($)))),
+      seq($.reserved_raw, repeat1(choice($._ALPHA, $._DIGIT, "-", "/", "_")), whitespace($), optional(seq($.at, $.natural_literal_raw, whitespace($)))),
     identifier_reserved_namespaced_prefix: $ =>
-      seq($.reserved_namespaced_raw, repeat1(choice($.ALPHA, $.DIGIT, "-", "/", "_")), whitespace($), optional(seq($.at, $.natural_literal_raw, whitespace($)))),
+      seq($.reserved_namespaced_raw, repeat1(choice($._ALPHA, $._DIGIT, "-", "/", "_")), whitespace($), optional(seq($.at, $.natural_literal_raw, whitespace($)))),
     missing: $ =>
       seq($.missing_raw, whitespace($)),
     // ; Printable characters other than " ()[]{}<>/\,",
@@ -535,12 +534,12 @@ module.exports = grammar({
     IP_literal: $ =>
       seq("[", choice($.IPv6address, $.IPvFuture), "]"),
     IPvFuture: $ =>
-      seq("v", repeat1($.HEXDIG), ".", repeat1(choice($.unreserved, $.sub_delims, ":"))),
+      seq("v", repeat1($._HEXDIG), ".", repeat1(choice($.unreserved, $.sub_delims, ":"))),
     // ; NOTE: Backtrack when parsing each alternative,
     IPv6address: $ =>
       choice(seq(seq(seq($.h16, ":"), seq($.h16, ":"), seq($.h16, ":"), seq($.h16, ":"), seq($.h16, ":"), seq($.h16, ":")), $.ls32), seq("::", seq(seq($.h16, ":"), seq($.h16, ":"), seq($.h16, ":"), seq($.h16, ":"), seq($.h16, ":")), $.ls32), seq(optional($.h16), "::", seq(seq($.h16, ":"), seq($.h16, ":"), seq($.h16, ":"), seq($.h16, ":")), $.ls32), seq(optional(seq(seq(optional(seq($.h16, ":"))), $.h16)), "::", seq(seq($.h16, ":"), seq($.h16, ":"), seq($.h16, ":")), $.ls32), seq(optional(seq(seq(optional(seq($.h16, ":")), optional(seq($.h16, ":"))), $.h16)), "::", seq(seq($.h16, ":"), seq($.h16, ":")), $.ls32), seq(optional(seq(seq(optional(seq($.h16, ":")), optional(seq($.h16, ":")), optional(seq($.h16, ":"))), $.h16)), "::", $.h16, ":", $.ls32), seq(optional(seq(seq(optional(seq($.h16, ":")), optional(seq($.h16, ":")), optional(seq($.h16, ":")), optional(seq($.h16, ":"))), $.h16)), "::", $.ls32), seq(optional(seq(seq(optional(seq($.h16, ":")), optional(seq($.h16, ":")), optional(seq($.h16, ":")), optional(seq($.h16, ":")), optional(seq($.h16, ":"))), $.h16)), "::", $.h16), seq(optional(seq(seq(optional(seq($.h16, ":")), optional(seq($.h16, ":")), optional(seq($.h16, ":")), optional(seq($.h16, ":")), optional(seq($.h16, ":")), optional(seq($.h16, ":"))), $.h16)), "::")),
     h16: $ =>
-      seq($.HEXDIG, optional($.HEXDIG), optional($.HEXDIG), optional($.HEXDIG)),
+      seq($._HEXDIG, optional($._HEXDIG), optional($._HEXDIG), optional($._HEXDIG)),
     ls32: $ =>
       choice(seq($.h16, ":", $.h16), $.IPv4address),
     IPv4address: $ =>
@@ -548,17 +547,17 @@ module.exports = grammar({
     // ; NOTE: Backtrack when parsing these alternatives and try them in reverse order,
     dec_octet: $ =>
       prec(1, choice(
-	$.DIGIT,
-	seq(choice("1", "2", "3", "4", "5", "6", "7", "8", "9"), $.DIGIT),
-	seq("1", seq($.DIGIT, $.DIGIT)),
-	seq("2", choice("0", "1", "2", "3", "4"), $.DIGIT),
+	$._DIGIT,
+	seq(choice("1", "2", "3", "4", "5", "6", "7", "8", "9"), $._DIGIT),
+	seq("1", seq($._DIGIT, $._DIGIT)),
+	seq("2", choice("0", "1", "2", "3", "4"), $._DIGIT),
 	seq("25", choice("0", "1", "2", "3", "4", "5")))),
     pchar: $ =>
       choice($.unreserved, $.pct_encoded, $.sub_delims, ":", "@"),
     pct_encoded: $ =>
-      seq("%", $.HEXDIG, $.HEXDIG),
+      seq("%", $._HEXDIG, $._HEXDIG),
     unreserved: $ =>
-      choice($.ALPHA, $.DIGIT, "-", ".", "_", "~"),
+      choice($._ALPHA, $._DIGIT, "-", ".", "_", "~"),
     sub_delims: $ =>
       choice("!", "$", "&", "'", "(", ")", "*", "+", ",", ";", "="),
     http: $ =>
@@ -573,7 +572,7 @@ module.exports = grammar({
     // ; > A word consisting only of  alphanumeric  characters  and  under-scores,  and,
     // ; > beginning with an alphabetic character or an under-score,
     bash_environment_variable: $ =>
-      seq(choice($.ALPHA, "_"), repeat(choice($.ALPHA, $.DIGIT, "_"))),
+      seq(choice($._ALPHA, "_"), repeat(choice($._ALPHA, $._DIGIT, "_"))),
     // ; The POSIX standard is significantly more flexible about legal environment,
     // ; variable names, which can contain alerts (i.e. '\a'), whitespace, or,
     // ; punctuation, for example.  The POSIX standard says about environment variable,
@@ -608,7 +607,7 @@ module.exports = grammar({
     import_type: $ =>
       choice($.missing, $.local, $.http, $.env),
     hash: $ =>
-      seq("\x73\x68\x61\x32\x35\x36\x3A", seq($.HEXDIG, $.HEXDIG, $.HEXDIG, $.HEXDIG, $.HEXDIG, $.HEXDIG, $.HEXDIG, $.HEXDIG, $.HEXDIG, $.HEXDIG, $.HEXDIG, $.HEXDIG, $.HEXDIG, $.HEXDIG, $.HEXDIG, $.HEXDIG, $.HEXDIG, $.HEXDIG, $.HEXDIG, $.HEXDIG, $.HEXDIG, $.HEXDIG, $.HEXDIG, $.HEXDIG, $.HEXDIG, $.HEXDIG, $.HEXDIG, $.HEXDIG, $.HEXDIG, $.HEXDIG, $.HEXDIG, $.HEXDIG, $.HEXDIG, $.HEXDIG, $.HEXDIG, $.HEXDIG, $.HEXDIG, $.HEXDIG, $.HEXDIG, $.HEXDIG, $.HEXDIG, $.HEXDIG, $.HEXDIG, $.HEXDIG, $.HEXDIG, $.HEXDIG, $.HEXDIG, $.HEXDIG, $.HEXDIG, $.HEXDIG, $.HEXDIG, $.HEXDIG, $.HEXDIG, $.HEXDIG, $.HEXDIG, $.HEXDIG, $.HEXDIG, $.HEXDIG, $.HEXDIG, $.HEXDIG, $.HEXDIG, $.HEXDIG, $.HEXDIG, $.HEXDIG), whitespace($)),
+      seq("\x73\x68\x61\x32\x35\x36\x3A", seq($._HEXDIG, $._HEXDIG, $._HEXDIG, $._HEXDIG, $._HEXDIG, $._HEXDIG, $._HEXDIG, $._HEXDIG, $._HEXDIG, $._HEXDIG, $._HEXDIG, $._HEXDIG, $._HEXDIG, $._HEXDIG, $._HEXDIG, $._HEXDIG, $._HEXDIG, $._HEXDIG, $._HEXDIG, $._HEXDIG, $._HEXDIG, $._HEXDIG, $._HEXDIG, $._HEXDIG, $._HEXDIG, $._HEXDIG, $._HEXDIG, $._HEXDIG, $._HEXDIG, $._HEXDIG, $._HEXDIG, $._HEXDIG, $._HEXDIG, $._HEXDIG, $._HEXDIG, $._HEXDIG, $._HEXDIG, $._HEXDIG, $._HEXDIG, $._HEXDIG, $._HEXDIG, $._HEXDIG, $._HEXDIG, $._HEXDIG, $._HEXDIG, $._HEXDIG, $._HEXDIG, $._HEXDIG, $._HEXDIG, $._HEXDIG, $._HEXDIG, $._HEXDIG, $._HEXDIG, $._HEXDIG, $._HEXDIG, $._HEXDIG, $._HEXDIG, $._HEXDIG, $._HEXDIG, $._HEXDIG, $._HEXDIG, $._HEXDIG, $._HEXDIG, $._HEXDIG), whitespace($)),
     import_hashed: $ =>
       seq($.import_type, optional($.hash)),
     // ; "http://example.com",

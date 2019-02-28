@@ -143,7 +143,7 @@
         "name": "_whitespace_chunk"
       }
     },
-    "ALPHA": {
+    "_ALPHA": {
       "type": "CHOICE",
       "members": [
         {
@@ -356,7 +356,7 @@
         }
       ]
     },
-    "DIGIT": {
+    "_DIGIT": {
       "type": "CHOICE",
       "members": [
         {
@@ -401,12 +401,12 @@
         }
       ]
     },
-    "HEXDIG": {
+    "_HEXDIG": {
       "type": "CHOICE",
       "members": [
         {
           "type": "SYMBOL",
-          "name": "DIGIT"
+          "name": "_DIGIT"
         },
         {
           "type": "STRING",
@@ -466,7 +466,7 @@
           "members": [
             {
               "type": "SYMBOL",
-              "name": "ALPHA"
+              "name": "_ALPHA"
             },
             {
               "type": "STRING",
@@ -481,11 +481,11 @@
             "members": [
               {
                 "type": "SYMBOL",
-                "name": "ALPHA"
+                "name": "_ALPHA"
               },
               {
                 "type": "SYMBOL",
-                "name": "DIGIT"
+                "name": "_DIGIT"
               },
               {
                 "type": "STRING",
@@ -511,11 +511,11 @@
         "members": [
           {
             "type": "SYMBOL",
-            "name": "ALPHA"
+            "name": "_ALPHA"
           },
           {
             "type": "SYMBOL",
-            "name": "DIGIT"
+            "name": "_DIGIT"
           },
           {
             "type": "STRING",
@@ -660,19 +660,19 @@
                       "members": [
                         {
                           "type": "SYMBOL",
-                          "name": "HEXDIG"
+                          "name": "_HEXDIG"
                         },
                         {
                           "type": "SYMBOL",
-                          "name": "HEXDIG"
+                          "name": "_HEXDIG"
                         },
                         {
                           "type": "SYMBOL",
-                          "name": "HEXDIG"
+                          "name": "_HEXDIG"
                         },
                         {
                           "type": "SYMBOL",
-                          "name": "HEXDIG"
+                          "name": "_HEXDIG"
                         }
                       ]
                     }
@@ -1918,7 +1918,7 @@
           "type": "REPEAT1",
           "content": {
             "type": "SYMBOL",
-            "name": "DIGIT"
+            "name": "_DIGIT"
           }
         }
       ]
@@ -1951,7 +1951,7 @@
           "type": "REPEAT1",
           "content": {
             "type": "SYMBOL",
-            "name": "DIGIT"
+            "name": "_DIGIT"
           }
         },
         {
@@ -1968,7 +1968,7 @@
                   "type": "REPEAT1",
                   "content": {
                     "type": "SYMBOL",
-                    "name": "DIGIT"
+                    "name": "_DIGIT"
                   }
                 },
                 {
@@ -2004,7 +2004,7 @@
       "type": "REPEAT1",
       "content": {
         "type": "SYMBOL",
-        "name": "DIGIT"
+        "name": "_DIGIT"
       }
     },
     "integer_literal": {
@@ -2103,11 +2103,11 @@
             "members": [
               {
                 "type": "SYMBOL",
-                "name": "ALPHA"
+                "name": "_ALPHA"
               },
               {
                 "type": "SYMBOL",
-                "name": "DIGIT"
+                "name": "_DIGIT"
               },
               {
                 "type": "STRING",
@@ -2175,11 +2175,11 @@
             "members": [
               {
                 "type": "SYMBOL",
-                "name": "ALPHA"
+                "name": "_ALPHA"
               },
               {
                 "type": "SYMBOL",
-                "name": "DIGIT"
+                "name": "_DIGIT"
               },
               {
                 "type": "STRING",
@@ -2576,7 +2576,7 @@
                       "type": "REPEAT",
                       "content": {
                         "type": "SYMBOL",
-                        "name": "DIGIT"
+                        "name": "_DIGIT"
                       }
                     }
                   ]
@@ -2712,7 +2712,7 @@
           "type": "REPEAT1",
           "content": {
             "type": "SYMBOL",
-            "name": "HEXDIG"
+            "name": "_HEXDIG"
           }
         },
         {
@@ -3738,14 +3738,14 @@
       "members": [
         {
           "type": "SYMBOL",
-          "name": "HEXDIG"
+          "name": "_HEXDIG"
         },
         {
           "type": "CHOICE",
           "members": [
             {
               "type": "SYMBOL",
-              "name": "HEXDIG"
+              "name": "_HEXDIG"
             },
             {
               "type": "BLANK"
@@ -3757,7 +3757,7 @@
           "members": [
             {
               "type": "SYMBOL",
-              "name": "HEXDIG"
+              "name": "_HEXDIG"
             },
             {
               "type": "BLANK"
@@ -3769,7 +3769,7 @@
           "members": [
             {
               "type": "SYMBOL",
-              "name": "HEXDIG"
+              "name": "_HEXDIG"
             },
             {
               "type": "BLANK"
@@ -3845,7 +3845,7 @@
         "members": [
           {
             "type": "SYMBOL",
-            "name": "DIGIT"
+            "name": "_DIGIT"
           },
           {
             "type": "SEQ",
@@ -3893,7 +3893,7 @@
               },
               {
                 "type": "SYMBOL",
-                "name": "DIGIT"
+                "name": "_DIGIT"
               }
             ]
           },
@@ -3909,11 +3909,11 @@
                 "members": [
                   {
                     "type": "SYMBOL",
-                    "name": "DIGIT"
+                    "name": "_DIGIT"
                   },
                   {
                     "type": "SYMBOL",
-                    "name": "DIGIT"
+                    "name": "_DIGIT"
                   }
                 ]
               }
@@ -3953,7 +3953,7 @@
               },
               {
                 "type": "SYMBOL",
-                "name": "DIGIT"
+                "name": "_DIGIT"
               }
             ]
           },
@@ -4032,11 +4032,11 @@
         },
         {
           "type": "SYMBOL",
-          "name": "HEXDIG"
+          "name": "_HEXDIG"
         },
         {
           "type": "SYMBOL",
-          "name": "HEXDIG"
+          "name": "_HEXDIG"
         }
       ]
     },
@@ -4045,11 +4045,11 @@
       "members": [
         {
           "type": "SYMBOL",
-          "name": "ALPHA"
+          "name": "_ALPHA"
         },
         {
           "type": "SYMBOL",
-          "name": "DIGIT"
+          "name": "_DIGIT"
         },
         {
           "type": "STRING",
@@ -4227,7 +4227,7 @@
           "members": [
             {
               "type": "SYMBOL",
-              "name": "ALPHA"
+              "name": "_ALPHA"
             },
             {
               "type": "STRING",
@@ -4242,11 +4242,11 @@
             "members": [
               {
                 "type": "SYMBOL",
-                "name": "ALPHA"
+                "name": "_ALPHA"
               },
               {
                 "type": "SYMBOL",
-                "name": "DIGIT"
+                "name": "_DIGIT"
               },
               {
                 "type": "STRING",
@@ -4368,259 +4368,259 @@
           "members": [
             {
               "type": "SYMBOL",
-              "name": "HEXDIG"
+              "name": "_HEXDIG"
             },
             {
               "type": "SYMBOL",
-              "name": "HEXDIG"
+              "name": "_HEXDIG"
             },
             {
               "type": "SYMBOL",
-              "name": "HEXDIG"
+              "name": "_HEXDIG"
             },
             {
               "type": "SYMBOL",
-              "name": "HEXDIG"
+              "name": "_HEXDIG"
             },
             {
               "type": "SYMBOL",
-              "name": "HEXDIG"
+              "name": "_HEXDIG"
             },
             {
               "type": "SYMBOL",
-              "name": "HEXDIG"
+              "name": "_HEXDIG"
             },
             {
               "type": "SYMBOL",
-              "name": "HEXDIG"
+              "name": "_HEXDIG"
             },
             {
               "type": "SYMBOL",
-              "name": "HEXDIG"
+              "name": "_HEXDIG"
             },
             {
               "type": "SYMBOL",
-              "name": "HEXDIG"
+              "name": "_HEXDIG"
             },
             {
               "type": "SYMBOL",
-              "name": "HEXDIG"
+              "name": "_HEXDIG"
             },
             {
               "type": "SYMBOL",
-              "name": "HEXDIG"
+              "name": "_HEXDIG"
             },
             {
               "type": "SYMBOL",
-              "name": "HEXDIG"
+              "name": "_HEXDIG"
             },
             {
               "type": "SYMBOL",
-              "name": "HEXDIG"
+              "name": "_HEXDIG"
             },
             {
               "type": "SYMBOL",
-              "name": "HEXDIG"
+              "name": "_HEXDIG"
             },
             {
               "type": "SYMBOL",
-              "name": "HEXDIG"
+              "name": "_HEXDIG"
             },
             {
               "type": "SYMBOL",
-              "name": "HEXDIG"
+              "name": "_HEXDIG"
             },
             {
               "type": "SYMBOL",
-              "name": "HEXDIG"
+              "name": "_HEXDIG"
             },
             {
               "type": "SYMBOL",
-              "name": "HEXDIG"
+              "name": "_HEXDIG"
             },
             {
               "type": "SYMBOL",
-              "name": "HEXDIG"
+              "name": "_HEXDIG"
             },
             {
               "type": "SYMBOL",
-              "name": "HEXDIG"
+              "name": "_HEXDIG"
             },
             {
               "type": "SYMBOL",
-              "name": "HEXDIG"
+              "name": "_HEXDIG"
             },
             {
               "type": "SYMBOL",
-              "name": "HEXDIG"
+              "name": "_HEXDIG"
             },
             {
               "type": "SYMBOL",
-              "name": "HEXDIG"
+              "name": "_HEXDIG"
             },
             {
               "type": "SYMBOL",
-              "name": "HEXDIG"
+              "name": "_HEXDIG"
             },
             {
               "type": "SYMBOL",
-              "name": "HEXDIG"
+              "name": "_HEXDIG"
             },
             {
               "type": "SYMBOL",
-              "name": "HEXDIG"
+              "name": "_HEXDIG"
             },
             {
               "type": "SYMBOL",
-              "name": "HEXDIG"
+              "name": "_HEXDIG"
             },
             {
               "type": "SYMBOL",
-              "name": "HEXDIG"
+              "name": "_HEXDIG"
             },
             {
               "type": "SYMBOL",
-              "name": "HEXDIG"
+              "name": "_HEXDIG"
             },
             {
               "type": "SYMBOL",
-              "name": "HEXDIG"
+              "name": "_HEXDIG"
             },
             {
               "type": "SYMBOL",
-              "name": "HEXDIG"
+              "name": "_HEXDIG"
             },
             {
               "type": "SYMBOL",
-              "name": "HEXDIG"
+              "name": "_HEXDIG"
             },
             {
               "type": "SYMBOL",
-              "name": "HEXDIG"
+              "name": "_HEXDIG"
             },
             {
               "type": "SYMBOL",
-              "name": "HEXDIG"
+              "name": "_HEXDIG"
             },
             {
               "type": "SYMBOL",
-              "name": "HEXDIG"
+              "name": "_HEXDIG"
             },
             {
               "type": "SYMBOL",
-              "name": "HEXDIG"
+              "name": "_HEXDIG"
             },
             {
               "type": "SYMBOL",
-              "name": "HEXDIG"
+              "name": "_HEXDIG"
             },
             {
               "type": "SYMBOL",
-              "name": "HEXDIG"
+              "name": "_HEXDIG"
             },
             {
               "type": "SYMBOL",
-              "name": "HEXDIG"
+              "name": "_HEXDIG"
             },
             {
               "type": "SYMBOL",
-              "name": "HEXDIG"
+              "name": "_HEXDIG"
             },
             {
               "type": "SYMBOL",
-              "name": "HEXDIG"
+              "name": "_HEXDIG"
             },
             {
               "type": "SYMBOL",
-              "name": "HEXDIG"
+              "name": "_HEXDIG"
             },
             {
               "type": "SYMBOL",
-              "name": "HEXDIG"
+              "name": "_HEXDIG"
             },
             {
               "type": "SYMBOL",
-              "name": "HEXDIG"
+              "name": "_HEXDIG"
             },
             {
               "type": "SYMBOL",
-              "name": "HEXDIG"
+              "name": "_HEXDIG"
             },
             {
               "type": "SYMBOL",
-              "name": "HEXDIG"
+              "name": "_HEXDIG"
             },
             {
               "type": "SYMBOL",
-              "name": "HEXDIG"
+              "name": "_HEXDIG"
             },
             {
               "type": "SYMBOL",
-              "name": "HEXDIG"
+              "name": "_HEXDIG"
             },
             {
               "type": "SYMBOL",
-              "name": "HEXDIG"
+              "name": "_HEXDIG"
             },
             {
               "type": "SYMBOL",
-              "name": "HEXDIG"
+              "name": "_HEXDIG"
             },
             {
               "type": "SYMBOL",
-              "name": "HEXDIG"
+              "name": "_HEXDIG"
             },
             {
               "type": "SYMBOL",
-              "name": "HEXDIG"
+              "name": "_HEXDIG"
             },
             {
               "type": "SYMBOL",
-              "name": "HEXDIG"
+              "name": "_HEXDIG"
             },
             {
               "type": "SYMBOL",
-              "name": "HEXDIG"
+              "name": "_HEXDIG"
             },
             {
               "type": "SYMBOL",
-              "name": "HEXDIG"
+              "name": "_HEXDIG"
             },
             {
               "type": "SYMBOL",
-              "name": "HEXDIG"
+              "name": "_HEXDIG"
             },
             {
               "type": "SYMBOL",
-              "name": "HEXDIG"
+              "name": "_HEXDIG"
             },
             {
               "type": "SYMBOL",
-              "name": "HEXDIG"
+              "name": "_HEXDIG"
             },
             {
               "type": "SYMBOL",
-              "name": "HEXDIG"
+              "name": "_HEXDIG"
             },
             {
               "type": "SYMBOL",
-              "name": "HEXDIG"
+              "name": "_HEXDIG"
             },
             {
               "type": "SYMBOL",
-              "name": "HEXDIG"
+              "name": "_HEXDIG"
             },
             {
               "type": "SYMBOL",
-              "name": "HEXDIG"
+              "name": "_HEXDIG"
             },
             {
               "type": "SYMBOL",
-              "name": "HEXDIG"
+              "name": "_HEXDIG"
             },
             {
               "type": "SYMBOL",
-              "name": "HEXDIG"
+              "name": "_HEXDIG"
             }
           ]
         },
