@@ -1,0 +1,275 @@
+========================================
+Double Literal (+0.0)
+========================================
+
++0.0
+
+---
+
+(source_file (complete_expression (expression (annotated_expression (operator_expression (import_alt_expression (or_expression (plus_expression (text_append_expression (list_append_expression (and_expression (combine_expression (prefer_expression (combine_types_expression (times_expression (equal_expression (not_equal_expression (application_expression (import_expression (selector_expression (primitive_expression (double_literal))))))))))))))))))))))
+
+========================================
+Double Literal (-123.456e+500)
+========================================
+
+-123.456e+500
+
+---
+
+(source_file (complete_expression (expression (annotated_expression (operator_expression (import_alt_expression (or_expression (plus_expression (text_append_expression (list_append_expression (and_expression (combine_expression (prefer_expression (combine_types_expression (times_expression (equal_expression (not_equal_expression (application_expression (import_expression (selector_expression (primitive_expression (double_literal (exponent)))))))))))))))))))))))
+
+========================================
+Integer Literal (+0)
+========================================
+
++0
+
+---
+
+(source_file (complete_expression (expression (annotated_expression (operator_expression (import_alt_expression (or_expression (plus_expression (text_append_expression (list_append_expression (and_expression (combine_expression (prefer_expression (combine_types_expression (times_expression (equal_expression (not_equal_expression (application_expression (import_expression (selector_expression (primitive_expression (integer_literal (natural_literal_raw)))))))))))))))))))))))
+
+========================================
+Integer Literal (-42)
+========================================
+
+-42
+
+---
+
+(source_file (complete_expression (expression (annotated_expression (operator_expression (import_alt_expression (or_expression (plus_expression (text_append_expression (list_append_expression (and_expression (combine_expression (prefer_expression (combine_types_expression (times_expression (equal_expression (not_equal_expression (application_expression (import_expression (selector_expression (primitive_expression (integer_literal (natural_literal_raw)))))))))))))))))))))))
+
+========================================
+Natural Literal (0)
+========================================
+
+0
+
+---
+
+(source_file (complete_expression (expression (annotated_expression (operator_expression (import_alt_expression (or_expression (plus_expression (text_append_expression (list_append_expression (and_expression (combine_expression (prefer_expression (combine_types_expression (times_expression (equal_expression (not_equal_expression (application_expression (import_expression (selector_expression (primitive_expression (natural_literal (natural_literal_raw)))))))))))))))))))))))
+
+========================================
+Natural Literal (1)
+========================================
+
+1
+
+---
+
+(source_file (complete_expression (expression (annotated_expression (operator_expression (import_alt_expression (or_expression (plus_expression (text_append_expression (list_append_expression (and_expression (combine_expression (prefer_expression (combine_types_expression (times_expression (equal_expression (not_equal_expression (application_expression (import_expression (selector_expression (primitive_expression (natural_literal (natural_literal_raw)))))))))))))))))))))))
+
+========================================
+Natural Literal (0123456789876543210)
+========================================
+
+0123456789876543210
+
+---
+
+(source_file (complete_expression (expression (annotated_expression (operator_expression (import_alt_expression (or_expression (plus_expression (text_append_expression (list_append_expression (and_expression (combine_expression (prefer_expression (combine_types_expression (times_expression (equal_expression (not_equal_expression (application_expression (import_expression (selector_expression (primitive_expression (natural_literal (natural_literal_raw)))))))))))))))))))))))
+
+========================================
+-Infinity
+========================================
+
+-Infinity
+
+---
+
+(source_file (complete_expression (expression (annotated_expression (operator_expression (import_alt_expression (or_expression (plus_expression (text_append_expression (list_append_expression (and_expression (combine_expression (prefer_expression (combine_types_expression (times_expression (equal_expression (not_equal_expression (application_expression (import_expression (selector_expression (primitive_expression (Infinity_raw))))))))))))))))))))))
+
+========================================
+Text Literal (double quote)
+========================================
+
+"\" \$ \\ \/ \b \f \n \r \t \uD834\uDD1E ${"abc123XYZ"} ∧ ⩓ ⫽ λ ∀ →"
+
+---
+
+(source_file (complete_expression (expression (annotated_expression (operator_expression (import_alt_expression (or_expression (plus_expression (text_append_expression (list_append_expression (and_expression (combine_expression (prefer_expression (combine_types_expression (times_expression (equal_expression (not_equal_expression (application_expression (import_expression (selector_expression (primitive_expression (text_literal (double_quote_literal (double_quote_chunk) (double_quote_chunk) (double_quote_chunk) (double_quote_chunk) (double_quote_chunk) (double_quote_chunk) (double_quote_chunk) (double_quote_chunk) (double_quote_chunk) (double_quote_chunk) (double_quote_chunk) (double_quote_chunk) (double_quote_chunk) (double_quote_chunk) (double_quote_chunk) (double_quote_chunk) (double_quote_chunk) (double_quote_chunk) (double_quote_chunk) (double_quote_chunk) (double_quote_chunk) (double_quote_chunk (complete_expression (expression (annotated_expression (operator_expression (import_alt_expression (or_expression (plus_expression (text_append_expression (list_append_expression (and_expression (combine_expression (prefer_expression (combine_types_expression (times_expression (equal_expression (not_equal_expression (application_expression (import_expression (selector_expression (primitive_expression (text_literal (double_quote_literal (double_quote_chunk) (double_quote_chunk) (double_quote_chunk) (double_quote_chunk) (double_quote_chunk) (double_quote_chunk) (double_quote_chunk) (double_quote_chunk) (double_quote_chunk)))))))))))))))))))))))) (double_quote_chunk) (double_quote_chunk) (double_quote_chunk) (double_quote_chunk) (double_quote_chunk) (double_quote_chunk) (double_quote_chunk) (double_quote_chunk) (double_quote_chunk) (double_quote_chunk) (double_quote_chunk) (double_quote_chunk))))))))))))))))))))))))
+
+========================================
+Text Literal (single quote)
+========================================
+
+''
+'''hello''' ${"world"}
+	escaping ''${"interpolation"}
+  ${''
+      interpolated single quote
+    ''}
+''
+
+---
+
+(source_file (complete_expression (expression (annotated_expression (operator_expression (import_alt_expression (or_expression (plus_expression (text_append_expression (list_append_expression (and_expression (combine_expression (prefer_expression (combine_types_expression (times_expression (equal_expression (not_equal_expression (application_expression (import_expression (selector_expression (primitive_expression (text_literal (single_quote_literal (single_quote_continue (single_quote_continue (single_quote_continue (single_quote_continue (single_quote_continue (single_quote_continue (single_quote_continue (single_quote_continue (single_quote_continue (complete_expression (expression (annotated_expression (operator_expression (import_alt_expression (or_expression (plus_expression (text_append_expression (list_append_expression (and_expression (combine_expression (prefer_expression (combine_types_expression (times_expression (equal_expression (not_equal_expression (application_expression (import_expression (selector_expression (primitive_expression (text_literal (double_quote_literal (double_quote_chunk) (double_quote_chunk) (double_quote_chunk) (double_quote_chunk) (double_quote_chunk))))))))))))))))))))))) (single_quote_continue (single_quote_continue (single_quote_continue (single_quote_continue (single_quote_continue (single_quote_continue (single_quote_continue (single_quote_continue (single_quote_continue (single_quote_continue (single_quote_continue (single_quote_continue (single_quote_continue (single_quote_continue (single_quote_continue (single_quote_continue (single_quote_continue (single_quote_continue (single_quote_continue (single_quote_continue (single_quote_continue (single_quote_continue (single_quote_continue (single_quote_continue (single_quote_continue (single_quote_continue (single_quote_continue (single_quote_continue (single_quote_continue (single_quote_continue (single_quote_continue (single_quote_continue (complete_expression (expression (annotated_expression (operator_expression (import_alt_expression (or_expression (plus_expression (text_append_expression (list_append_expression (and_expression (combine_expression (prefer_expression (combine_types_expression (times_expression (equal_expression (not_equal_expression (application_expression (import_expression (selector_expression (primitive_expression (text_literal (single_quote_literal (single_quote_continue (single_quote_continue (single_quote_continue (single_quote_continue (single_quote_continue (single_quote_continue (single_quote_continue (single_quote_continue (single_quote_continue (single_quote_continue (single_quote_continue (single_quote_continue (single_quote_continue (single_quote_continue (single_quote_continue (single_quote_continue (single_quote_continue (single_quote_continue (single_quote_continue (single_quote_continue (single_quote_continue (single_quote_continue (single_quote_continue (single_quote_continue (single_quote_continue (single_quote_continue (single_quote_continue (single_quote_continue (single_quote_continue (single_quote_continue (single_quote_continue (single_quote_continue (single_quote_continue (single_quote_continue (single_quote_continue (single_quote_continue (single_quote_continue))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) (single_quote_continue (single_quote_continue))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))
+
+========================================
+Record Type (empty)
+========================================
+
+{}
+
+---
+
+(source_file (complete_expression (expression (annotated_expression (operator_expression (import_alt_expression (or_expression (plus_expression (text_append_expression (list_append_expression (and_expression (combine_expression (prefer_expression (combine_types_expression (times_expression (equal_expression (not_equal_expression (application_expression (import_expression (selector_expression (primitive_expression (open_brace) (close_brace))))))))))))))))))))))
+
+========================================
+Record Type (non-empty)
+========================================
+
+{ foo : Integer, bar : Bool }
+
+---
+
+(source_file (complete_expression (expression (annotated_expression (operator_expression (import_alt_expression (or_expression (plus_expression (text_append_expression (list_append_expression (and_expression (combine_expression (prefer_expression (combine_types_expression (times_expression (equal_expression (not_equal_expression (application_expression (import_expression (selector_expression (primitive_expression (open_brace) (non_empty_record_type_or_literal (label (simple_label)) (non_empty_record_type (colon) (expression (annotated_expression (operator_expression (import_alt_expression (or_expression (plus_expression (text_append_expression (list_append_expression (and_expression (combine_expression (prefer_expression (combine_types_expression (times_expression (equal_expression (not_equal_expression (application_expression (import_expression (selector_expression (primitive_expression (reserved (reserved_raw (Integer_raw)))))))))))))))))))))) (comma) (label (simple_label)) (colon) (expression (annotated_expression (operator_expression (import_alt_expression (or_expression (plus_expression (text_append_expression (list_append_expression (and_expression (combine_expression (prefer_expression (combine_types_expression (times_expression (equal_expression (not_equal_expression (application_expression (import_expression (selector_expression (primitive_expression (reserved (reserved_raw (Bool_raw)))))))))))))))))))))))) (close_brace))))))))))))))))))))))
+
+========================================
+Record Literal (empty)
+========================================
+
+{=}
+
+---
+
+(source_file (complete_expression (expression (annotated_expression (operator_expression (import_alt_expression (or_expression (plus_expression (text_append_expression (list_append_expression (and_expression (combine_expression (prefer_expression (combine_types_expression (times_expression (equal_expression (not_equal_expression (application_expression (import_expression (selector_expression (primitive_expression (open_brace) (equal) (close_brace))))))))))))))))))))))
+
+========================================
+Record Literal (non-empty)
+========================================
+
+{ foo = 1, bar : True }
+
+---
+
+(source_file (complete_expression (expression (annotated_expression (operator_expression (import_alt_expression (or_expression (plus_expression (text_append_expression (list_append_expression (and_expression (combine_expression (prefer_expression (combine_types_expression (times_expression (equal_expression (not_equal_expression (application_expression (import_expression (selector_expression (primitive_expression (open_brace) (non_empty_record_type_or_literal (label (simple_label)) (ERROR (equal) (expression (annotated_expression (operator_expression (import_alt_expression (or_expression (plus_expression (text_append_expression (list_append_expression (and_expression (combine_expression (prefer_expression (combine_types_expression (times_expression (equal_expression (not_equal_expression (application_expression (import_expression (selector_expression (primitive_expression (natural_literal (natural_literal_raw))))))))))))))))))))) (comma) (label (simple_label))) (non_empty_record_type (colon) (expression (annotated_expression (operator_expression (import_alt_expression (or_expression (plus_expression (text_append_expression (list_append_expression (and_expression (combine_expression (prefer_expression (combine_types_expression (times_expression (equal_expression (not_equal_expression (application_expression (import_expression (selector_expression (primitive_expression (reserved (reserved_raw (True_raw)))))))))))))))))))))))) (close_brace))))))))))))))))))))))
+
+========================================
+Union Type (empty)
+========================================
+
+<>
+
+---
+
+(source_file (complete_expression (expression (annotated_expression (operator_expression (import_alt_expression (or_expression (plus_expression (text_append_expression (list_append_expression (and_expression (combine_expression (prefer_expression (combine_types_expression (times_expression (equal_expression (not_equal_expression (application_expression (import_expression (selector_expression (primitive_expression (open_angle) (close_angle))))))))))))))))))))))
+
+========================================
+Union Type (non-empty)
+========================================
+
+< Foo : Integer | Bar : Bool >
+
+---
+
+(source_file (complete_expression (expression (annotated_expression (operator_expression (import_alt_expression (or_expression (plus_expression (text_append_expression (list_append_expression (and_expression (combine_expression (prefer_expression (combine_types_expression (times_expression (equal_expression (not_equal_expression (application_expression (import_expression (selector_expression (primitive_expression (open_angle) (non_empty_union_type_or_literal (label (simple_label)) (colon) (expression (annotated_expression (operator_expression (import_alt_expression (or_expression (plus_expression (text_append_expression (list_append_expression (and_expression (combine_expression (prefer_expression (combine_types_expression (times_expression (equal_expression (not_equal_expression (application_expression (import_expression (selector_expression (primitive_expression (reserved (reserved_raw (Integer_raw)))))))))))))))))))))) (bar) (non_empty_union_type_or_literal (label (simple_label)) (colon) (expression (annotated_expression (operator_expression (import_alt_expression (or_expression (plus_expression (text_append_expression (list_append_expression (and_expression (combine_expression (prefer_expression (combine_types_expression (times_expression (equal_expression (not_equal_expression (application_expression (import_expression (selector_expression (primitive_expression (reserved (reserved_raw (Bool_raw)))))))))))))))))))))))) (close_angle))))))))))))))))))))))
+
+========================================
+Union Literal (non-empty)
+========================================
+
+< Foo : Integer | Bar = True >
+
+---
+
+(source_file (complete_expression (expression (annotated_expression (operator_expression (import_alt_expression (or_expression (plus_expression (text_append_expression (list_append_expression (and_expression (combine_expression (prefer_expression (combine_types_expression (times_expression (equal_expression (not_equal_expression (application_expression (import_expression (selector_expression (primitive_expression (open_angle) (non_empty_union_type_or_literal (label (simple_label)) (colon) (expression (annotated_expression (operator_expression (import_alt_expression (or_expression (plus_expression (text_append_expression (list_append_expression (and_expression (combine_expression (prefer_expression (combine_types_expression (times_expression (equal_expression (not_equal_expression (application_expression (import_expression (selector_expression (primitive_expression (reserved (reserved_raw (Integer_raw)))))))))))))))))))))) (bar) (non_empty_union_type_or_literal (label (simple_label)) (equal) (expression (annotated_expression (operator_expression (import_alt_expression (or_expression (plus_expression (text_append_expression (list_append_expression (and_expression (combine_expression (prefer_expression (combine_types_expression (times_expression (equal_expression (not_equal_expression (application_expression (import_expression (selector_expression (primitive_expression (reserved (reserved_raw (True_raw)))))))))))))))))))))))) (close_angle))))))))))))))))))))))
+
+========================================
+List Literal (non-empty)
+========================================
+
+[1, 2, 3]
+
+---
+
+(source_file (complete_expression (expression (annotated_expression (operator_expression (import_alt_expression (or_expression (plus_expression (text_append_expression (list_append_expression (and_expression (combine_expression (prefer_expression (combine_types_expression (times_expression (equal_expression (not_equal_expression (application_expression (import_expression (selector_expression (primitive_expression (non_empty_list_literal (open_bracket) (expression (annotated_expression (operator_expression (import_alt_expression (or_expression (plus_expression (text_append_expression (list_append_expression (and_expression (combine_expression (prefer_expression (combine_types_expression (times_expression (equal_expression (not_equal_expression (application_expression (import_expression (selector_expression (primitive_expression (natural_literal (natural_literal_raw))))))))))))))))))))) (comma) (expression (annotated_expression (operator_expression (import_alt_expression (or_expression (plus_expression (text_append_expression (list_append_expression (and_expression (combine_expression (prefer_expression (combine_types_expression (times_expression (equal_expression (not_equal_expression (application_expression (import_expression (selector_expression (primitive_expression (natural_literal (natural_literal_raw))))))))))))))))))))) (comma) (expression (annotated_expression (operator_expression (import_alt_expression (or_expression (plus_expression (text_append_expression (list_append_expression (and_expression (combine_expression (prefer_expression (combine_types_expression (times_expression (equal_expression (not_equal_expression (application_expression (import_expression (selector_expression (primitive_expression (natural_literal (natural_literal_raw))))))))))))))))))))) (close_bracket)))))))))))))))))))))))
+
+========================================
+Reserved Namespaced (List/head)
+========================================
+
+List/head
+
+---
+
+(source_file (complete_expression (expression (annotated_expression (operator_expression (import_alt_expression (or_expression (plus_expression (text_append_expression (list_append_expression (and_expression (combine_expression (prefer_expression (combine_types_expression (times_expression (equal_expression (not_equal_expression (application_expression (import_expression (selector_expression (primitive_expression (reserved_namespaced (reserved_namespaced_raw (List_head_raw))))))))))))))))))))))))
+
+========================================
+Identifier Reserved Prefix (List/map)
+========================================
+
+List/map
+
+---
+
+(source_file (complete_expression (expression (annotated_expression (operator_expression (import_alt_expression (or_expression (plus_expression (text_append_expression (list_append_expression (and_expression (combine_expression (prefer_expression (combine_types_expression (times_expression (equal_expression (not_equal_expression (application_expression (import_expression (selector_expression (primitive_expression (identifier_reserved_prefix (reserved_raw (List_raw))))))))))))))))))))))))
+
+===========================================
+Identifier Reserved Prefix (TypeDefinition)
+===========================================
+
+TypeDefinition
+
+---
+
+(source_file (complete_expression (expression (annotated_expression (operator_expression (import_alt_expression (or_expression (plus_expression (text_append_expression (list_append_expression (and_expression (combine_expression (prefer_expression (combine_types_expression (times_expression (equal_expression (not_equal_expression (application_expression (import_expression (selector_expression (primitive_expression (identifier_reserved_prefix (reserved_raw (Type_raw))))))))))))))))))))))))
+
+========================================
+Reserved (List)
+========================================
+
+List
+
+---
+
+(source_file (complete_expression (expression (annotated_expression (operator_expression (import_alt_expression (or_expression (plus_expression (text_append_expression (list_append_expression (and_expression (combine_expression (prefer_expression (combine_types_expression (times_expression (equal_expression (not_equal_expression (application_expression (import_expression (selector_expression (primitive_expression (reserved (reserved_raw (List_raw))))))))))))))))))))))))
+
+========================================
+Reserved (Infinity)
+========================================
+
+Infinity
+
+---
+
+(source_file (complete_expression (expression (annotated_expression (operator_expression (import_alt_expression (or_expression (plus_expression (text_append_expression (list_append_expression (and_expression (combine_expression (prefer_expression (combine_types_expression (times_expression (equal_expression (not_equal_expression (application_expression (import_expression (selector_expression (primitive_expression (reserved (reserved_raw (Infinity_raw))))))))))))))))))))))))
+
+========================================
+Identifier (_x-y/z_1)
+========================================
+
+_x-y/z_1
+
+---
+
+(source_file (complete_expression (expression (annotated_expression (operator_expression (import_alt_expression (or_expression (plus_expression (text_append_expression (list_append_expression (and_expression (combine_expression (prefer_expression (combine_types_expression (times_expression (equal_expression (not_equal_expression (application_expression (import_expression (selector_expression (primitive_expression (identifier (label (simple_label))))))))))))))))))))))))
+
+========================================
+Identifier (x@5)
+========================================
+
+x@5
+
+---
+
+(source_file (complete_expression (expression (annotated_expression (operator_expression (import_alt_expression (or_expression (plus_expression (text_append_expression (list_append_expression (and_expression (combine_expression (prefer_expression (combine_types_expression (times_expression (equal_expression (not_equal_expression (application_expression (import_expression (selector_expression (primitive_expression (identifier (label (simple_label)) (at) (natural_literal_raw)))))))))))))))))))))))
+
+========================================
+Identifier (`a1-/_:.$`)
+========================================
+
+`a1-/_:.$`
+
+---
+
+(source_file (complete_expression (expression (annotated_expression (operator_expression (import_alt_expression (or_expression (plus_expression (text_append_expression (list_append_expression (and_expression (combine_expression (prefer_expression (combine_types_expression (times_expression (equal_expression (not_equal_expression (application_expression (import_expression (selector_expression (primitive_expression (identifier (label (quoted_label))))))))))))))))))))))))
+
+========================================
+Parenthesized Expression ((True))
+========================================
+
+(True)
+
+---
+
+(source_file (complete_expression (expression (annotated_expression (operator_expression (import_alt_expression (or_expression (plus_expression (text_append_expression (list_append_expression (and_expression (combine_expression (prefer_expression (combine_types_expression (times_expression (equal_expression (not_equal_expression (application_expression (import_expression (selector_expression (primitive_expression (open_parens) (expression (annotated_expression (operator_expression (import_alt_expression (or_expression (plus_expression (text_append_expression (list_append_expression (and_expression (combine_expression (prefer_expression (combine_types_expression (times_expression (equal_expression (not_equal_expression (application_expression (import_expression (selector_expression (primitive_expression (reserved (reserved_raw (True_raw)))))))))))))))))))))) (close_parens))))))))))))))))))))))

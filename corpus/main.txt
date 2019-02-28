@@ -1,0 +1,29 @@
+========================================
+Block Comment
+========================================
+
+{- single-line block comment -}
+"filler"
+{-
+   this is
+   a block
+   comment
+-}
+
+---
+
+(source_file (complete_expression
+  (block_comment)
+  (expression (annotated_expression (operator_expression (import_alt_expression (or_expression (plus_expression (text_append_expression (list_append_expression (and_expression (combine_expression (prefer_expression (combine_types_expression (times_expression (equal_expression (not_equal_expression (application_expression (import_expression (selector_expression (primitive_expression (text_literal (double_quote_literal (double_quote_chunk) (double_quote_chunk) (double_quote_chunk) (double_quote_chunk) (double_quote_chunk) (double_quote_chunk))
+  (block_comment)))))))))))))))))))))))
+
+========================================
+Line Comment
+========================================
+
+-- this is a line comment
+"filler"  -- ... and another
+
+---
+
+(source_file (complete_expression (line_comment) (expression (annotated_expression (operator_expression (import_alt_expression (or_expression (plus_expression (text_append_expression (list_append_expression (and_expression (combine_expression (prefer_expression (combine_types_expression (times_expression (equal_expression (not_equal_expression (application_expression (import_expression (selector_expression (primitive_expression (text_literal (double_quote_literal (double_quote_chunk) (double_quote_chunk) (double_quote_chunk) (double_quote_chunk) (double_quote_chunk) (double_quote_chunk)) (line_comment)))))))))))))))))))))))

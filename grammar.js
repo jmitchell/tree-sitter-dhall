@@ -170,11 +170,11 @@ module.exports = grammar({
     block_comment: $ =>
       seq("{-", $._block_comment_continue),
     _block_comment_chunk: $ =>
-      choice($.block_comment, /[\u0020-\uD7FF]/, $._tab, $._end_of_line),
+      choice($.block_comment, /[\x20-\uD7FF]/, $._tab, $._end_of_line),
     _block_comment_continue: $ =>
       choice("-}", seq($._block_comment_chunk, $._block_comment_continue)),
     _not_end_of_line: $ =>
-      choice(/[\u0020-\uD7FF]/, $._tab),
+      choice(/[\x20-\uD7FF]/, $._tab),
     // ; NOTE: Slightly different from Haskell-style single-line comments because this,
     // ; does not require a space after the dashes,
     line_comment: $ =>
@@ -308,95 +308,95 @@ module.exports = grammar({
     // ; except without the '-raw' ending, and converting dashes in the rule name,
     // ; to forward slashes,
     if_raw: $ =>
-      "\x69\x66",
+      "if",
     then_raw: $ =>
-      "\x74\x68\x65\x6E",
+      "then",
     else_raw: $ =>
-      "\x65\x6C\x73\x65",
+      "else",
     let_raw: $ =>
-      "\x6C\x65\x74",
+      "let",
     in_raw: $ =>
-      "\x69\x6E",
+      "in",
     as_raw: $ =>
-      "\x61\x73",
+      "as",
     using_raw: $ =>
-      "\x75\x73\x69\x6E\x67",
+      "using",
     merge_raw: $ =>
-      "\x6D\x65\x72\x67\x65",
+      "merge",
     missing_raw: $ =>
-      "\x6D\x69\x73\x73\x69\x6E\x67",
+      "missing",
     Some_raw: $ =>
-      "\x53\x6F\x6D\x65",
+      "some",
     Natural_fold_raw: $ =>
-      "\x4E\x61\x74\x75\x72\x61\x6C\x2F\x66\x6F\x6C\x64",
+      "Natural/fold",
     Natural_build_raw: $ =>
-      "\x4E\x61\x74\x75\x72\x61\x6C\x2F\x62\x75\x69\x6C\x64",
+      "Natural/build",
     Natural_isZero_raw: $ =>
-      "\x4E\x61\x74\x75\x72\x61\x6C\x2F\x69\x73\x5A\x65\x72\x6F",
+      "Natural/isZero",
     Natural_even_raw: $ =>
-      "\x4E\x61\x74\x75\x72\x61\x6C\x2F\x65\x76\x65\x6E",
+      "Natural/even",
     Natural_odd_raw: $ =>
-      "\x4E\x61\x74\x75\x72\x61\x6C\x2F\x6F\x64\x64",
+      "Natural/odd",
     Natural_toInteger_raw: $ =>
-      "\x4E\x61\x74\x75\x72\x61\x6C\x2F\x74\x6F\x49\x6E\x74\x65\x67\x65\x72",
+      "Natural/toInteger",
     Natural_show_raw: $ =>
-      "\x4E\x61\x74\x75\x72\x61\x6C\x2F\x73\x68\x6F\x77",
+      "Natural/show",
     Integer_toDouble_raw: $ =>
-      "\x49\x6E\x74\x65\x67\x65\x72\x2F\x74\x6F\x44\x6F\x75\x62\x6C\x65",
+      "Integerl/toDouble",
     Integer_show_raw: $ =>
-      "\x49\x6E\x74\x65\x67\x65\x72\x2F\x73\x68\x6F\x77",
+      "Integer/show",
     Double_show_raw: $ =>
-      "\x44\x6F\x75\x62\x6C\x65\x2F\x73\x68\x6F\x77",
+      "Double/show",
     List_build_raw: $ =>
-      "\x4C\x69\x73\x74\x2F\x62\x75\x69\x6C\x64",
+      "List/build",
     List_fold_raw: $ =>
-      "\x4C\x69\x73\x74\x2F\x66\x6F\x6C\x64",
+      "List/fold",
     List_length_raw: $ =>
-      "\x4C\x69\x73\x74\x2F\x6C\x65\x6E\x67\x74\x68",
+      "List/length",
     List_head_raw: $ =>
-      "\x4C\x69\x73\x74\x2F\x68\x65\x61\x64",
+      "List/head",
     List_last_raw: $ =>
-      "\x4C\x69\x73\x74\x2F\x6C\x61\x73\x74",
+      "List/last",
     List_indexed_raw: $ =>
-      "\x4C\x69\x73\x74\x2F\x69\x6E\x64\x65\x78\x65\x64",
+      "List/indexed",
     List_reverse_raw: $ =>
-      "\x4C\x69\x73\x74\x2F\x72\x65\x76\x65\x72\x73\x65",
+      "List/reverse",
     Optional_fold_raw: $ =>
-      "\x4F\x70\x74\x69\x6F\x6E\x61\x6C\x2F\x66\x6F\x6C\x64",
+      "Optional/fold",
     Optional_build_raw: $ =>
-      "\x4F\x70\x74\x69\x6F\x6E\x61\x6C\x2F\x62\x75\x69\x6C\x64",
+      "Optional/build",
     Text_show_raw: $ =>
-      "\x54\x65\x78\x74\x2F\x73\x68\x6F\x77",
+      "Text/show",
     Bool_raw: $ =>
-      "\x42\x6F\x6F\x6C",
+      "Bool",
     Optional_raw: $ =>
-      "\x4F\x70\x74\x69\x6F\x6E\x61\x6C",
+      "Optional",
     None_raw: $ =>
-      "\x4E\x6F\x6E\x65",
+      "None",
     Natural_raw: $ =>
-      "\x4E\x61\x74\x75\x72\x61\x6C",
+      "Natural",
     Integer_raw: $ =>
-      "\x49\x6E\x74\x65\x67\x65\x72",
+      "Integer",
     Double_raw: $ =>
-      "\x44\x6F\x75\x62\x6C\x65",
+      "Double",
     Text_raw: $ =>
-      "\x54\x65\x78\x74",
+      "Text",
     List_raw: $ =>
-      "\x4C\x69\x73\x74",
+      "List",
     True_raw: $ =>
-      "\x54\x72\x75\x65",
+      "True",
     False_raw: $ =>
-      "\x46\x61\x6C\x73\x65",
+      "False",
     NaN_raw: $ =>
-      "\x4E\x61\x4E",
+      "NaN",
     Infinity_raw: $ =>
-      "\x49\x6E\x66\x69\x6E\x69\x74\x79",
+      "Infinity",
     Type_raw: $ =>
-      "\x54\x79\x70\x65",
+      "Type",
     Kind_raw: $ =>
-      "\x4B\x69\x6E\x64",
+      "Kind",
     Sort_raw: $ =>
-      "\x53\x6F\x72\x74",
+      "Sort",
     reserved_raw: $ =>
       choice($.Bool_raw, $.Optional_raw, $.None_raw, $.Natural_raw, $.Integer_raw, $.Double_raw, $.Text_raw, $.List_raw, $.True_raw, $.False_raw, $.NaN_raw, $.Infinity_raw, $.Type_raw, $.Kind_raw, $.Sort_raw),
     reserved_namespaced_raw: $ =>
@@ -684,7 +684,22 @@ module.exports = grammar({
     // ; we have to match the "namespaced" reserved words before the identifiers prefixed,
     // ; by a reserved word.,
     primitive_expression: $ =>
-      choice($.double_literal, $.natural_literal, $.integer_literal, seq("-", $.Infinity_raw, whitespace($)), $.text_literal, seq($.open_brace, record_type_or_literal($), $.close_brace), seq($.open_angle, union_type_or_literal($), $.close_angle), $.non_empty_list_literal, $.identifier_reserved_namespaced_prefix, $.reserved_namespaced, $.identifier_reserved_prefix, $.reserved, $.identifier, seq($.open_parens, $.expression, $.close_parens)),
+      choice(
+        $.double_literal,
+        $.natural_literal,
+        $.integer_literal,
+        seq("-", $.Infinity_raw, whitespace($)),
+        $.text_literal,
+        seq($.open_brace, record_type_or_literal($), $.close_brace),
+        seq($.open_angle, union_type_or_literal($), $.close_angle),
+        $.non_empty_list_literal,
+        $.identifier_reserved_namespaced_prefix,
+        $.reserved_namespaced,
+        $.identifier_reserved_prefix,
+        $.reserved,
+        $.identifier,
+        seq($.open_parens, $.expression, $.close_parens)
+      ),
     labels: $ =>
       seq($.open_brace, optional(seq($.label, repeat(seq($.comma, $.label)))), $.close_brace),
     non_empty_record_type_or_literal: $ =>
@@ -701,6 +716,6 @@ module.exports = grammar({
     // ; whitespace prefix for the top-level of the program,
     complete_expression: $ =>
       seq(whitespace($), $.expression)
-    
+
   }
 });
