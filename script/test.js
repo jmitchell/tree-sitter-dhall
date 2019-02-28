@@ -27,7 +27,10 @@ const test_suite = (spawn_parser) => {
   const valid_files = [
     './dhall-haskell/dhall/dhall-lang/Prelude/**',
     './dhall-haskell/dhall/dhall-lang/tests/parser/success/**/*.dhall',
-    './dhall-haskell/+(dhall/tests|dhall-bash|dhall-json|dhall-text|dhall-try)/*.dhall'
+
+    './dhall-haskell/dhall/!(dhall-lang)/**/*.dhall',
+
+    './dhall-haskell/!(dhall)/**/*.dhall'
   ].map(g => glob.sync(g, glob_opts));
   const invalid_files = [
     './dhall-haskell/dhall/dhall-lang/tests/parser/failure/**'

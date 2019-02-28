@@ -237,7 +237,6 @@ module.exports = grammar({
     // ; * as,
     // ; * using,
     // ; * merge,
-    // ; * constructors,
     // ; * Some,
     simple_label: $ =>
       seq(choice($.ALPHA, "_"), repeat(choice($.ALPHA, $.DIGIT, "-", "/", "_"))),
@@ -329,8 +328,6 @@ module.exports = grammar({
       "\x6D\x69\x73\x73\x69\x6E\x67",
     Some_raw: $ =>
       "\x53\x6F\x6D\x65",
-    constructors_raw: $ =>
-      "\x63\x6F\x6E\x73\x74\x72\x75\x63\x74\x6F\x72\x73",
     Natural_fold_raw: $ =>
       "\x4E\x61\x74\x75\x72\x61\x6C\x2F\x66\x6F\x6C\x64",
     Natural_build_raw: $ =>
@@ -426,8 +423,6 @@ module.exports = grammar({
       seq($.using_raw, $._nonempty_whitespace),
     merge: $ =>
       seq($.merge_raw, $._nonempty_whitespace),
-    constructors: $ =>
-      seq($.constructors_raw, $._nonempty_whitespace),
     Some: $ =>
       seq($.Some_raw, $._nonempty_whitespace),
     Optional: $ =>
@@ -666,7 +661,7 @@ module.exports = grammar({
     // ; would be ambiguity: `./ab` could be interpreted as "import the file `./ab`",,
     // ; or "apply the import `./a` to label `b`",
     application_expression: $ =>
-      seq(optional(choice($.constructors, $.Some)), $.import_expression, repeat(seq($._whitespace_chunk, $.import_expression))),
+      prec.left(seq(optional($.Some), $.import_expression, repeat(seq($._whitespace_chunk, $.import_expression)))),
     import_expression: $ =>
       choice($.import, $.selector_expression),
     // ; `record.field` extracts one field of a record,
