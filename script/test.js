@@ -17,7 +17,7 @@ const test_suite = (spawn_parser) => {
     // Users of this parser are responsible for supporting the
     // IEEE-754 binary64 when reifying the syntactic representation to
     // a numerical value.
-    './dhall-lang/tests/parser/failure/doubleBounds*.dhall',
+    './dhall-haskell/dhall/dhall-lang/tests/parser/failure/doubleBounds*.dhall',
 
     // TODO: diagnose
     './dhall-haskell/dhall-json/examples/travis.dhall'
@@ -25,12 +25,12 @@ const test_suite = (spawn_parser) => {
 
   const glob_opts = { nodir: true, ignore: ignoredTests };
   const valid_files = [
-    './dhall-lang/Prelude/**',
-    './dhall-lang/tests/parser/success/**/*.dhall',
-    './dhall-haskell/**/*.dhall'
+    './dhall-haskell/dhall/dhall-lang/Prelude/**',
+    './dhall-haskell/dhall/dhall-lang/tests/parser/success/**/*.dhall',
+    './dhall-haskell/+(dhall/tests|dhall-bash|dhall-json|dhall-text|dhall-try)/*.dhall'
   ].map(g => glob.sync(g, glob_opts));
   const invalid_files = [
-    './dhall-lang/tests/parser/failure/**'
+    './dhall-haskell/dhall/dhall-lang/tests/parser/failure/**'
   ].map(g => glob.sync(g, glob_opts));
 
 
