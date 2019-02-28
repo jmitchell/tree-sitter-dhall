@@ -44,7 +44,7 @@
         },
         {
           "type": "PATTERN",
-          "value": "[ -퟿]"
+          "value": "[\\x20-퟿]"
         },
         {
           "type": "SYMBOL",
@@ -83,7 +83,7 @@
       "members": [
         {
           "type": "PATTERN",
-          "value": "[ -퟿]"
+          "value": "[\\x20-퟿]"
         },
         {
           "type": "SYMBOL",
@@ -891,7 +891,7 @@
     },
     "Some_raw": {
       "type": "STRING",
-      "value": "Some"
+      "value": "some"
     },
     "Natural_fold_raw": {
       "type": "STRING",
@@ -923,7 +923,7 @@
     },
     "Integer_toDouble_raw": {
       "type": "STRING",
-      "value": "Integer/toDouble"
+      "value": "Integerl/toDouble"
     },
     "Integer_show_raw": {
       "type": "STRING",
