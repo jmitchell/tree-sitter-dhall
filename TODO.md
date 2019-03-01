@@ -1,5 +1,5 @@
-Corpus coverage
-===============
+Corpus test coverage
+====================
 
 - [ ] selector-expression
 - [ ] import-expression
