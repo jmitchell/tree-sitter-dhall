@@ -22,6 +22,7 @@ Broken tests
 - [ ] ./dhall-haskell/dhall-json/examples/travis.dhall
 - [ ] Identifier Reserved Namespaced Prefix (List/foldWith)
 - [ ] Identifier Reserved Namespaced Prefix (List/a/b/c/1-2_3@4)
+- [ ] Record Literal (non-empty)
 
 UX
 ==

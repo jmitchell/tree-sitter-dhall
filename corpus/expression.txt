@@ -191,3 +191,13 @@ Annotated (non-empty Optional)
 ---
 
 (source_file (complete_expression (expression (annotated_expression (open_bracket) (non_empty_optional (expression (annotated_expression (operator_expression (import_alt_expression (or_expression (plus_expression (text_append_expression (list_append_expression (and_expression (combine_expression (prefer_expression (combine_types_expression (times_expression (equal_expression (not_equal_expression (application_expression (import_expression (selector_expression (primitive_expression (natural_literal (natural_literal_raw))))))))))))))))))))) (close_bracket) (colon) (Optional (Optional_raw)) (import_expression (selector_expression (primitive_expression (reserved (reserved_raw (Natural_raw)))))))))))
+
+========================================
+Import local file as Text
+========================================
+
+./LICENSE as Text
+
+---
+
+(source_file (complete_expression (expression (annotated_expression (operator_expression (import_alt_expression (or_expression (plus_expression (text_append_expression (list_append_expression (and_expression (combine_expression (prefer_expression (combine_types_expression (times_expression (equal_expression (not_equal_expression (application_expression (import_expression (import (import_hashed (import_type (local (local_raw (file (path_component (path_character) (path_character) (path_character) (path_character) (path_character) (path_character) (path_character))))))) (as (as_raw)) (Text (Text_raw))))))))))))))))))))))

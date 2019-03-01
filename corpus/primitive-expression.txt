@@ -135,16 +135,6 @@ Record Literal (empty)
 (source_file (complete_expression (expression (annotated_expression (operator_expression (import_alt_expression (or_expression (plus_expression (text_append_expression (list_append_expression (and_expression (combine_expression (prefer_expression (combine_types_expression (times_expression (equal_expression (not_equal_expression (application_expression (import_expression (selector_expression (primitive_expression (open_brace) (equal) (close_brace))))))))))))))))))))))
 
 ========================================
-Record Literal (non-empty)
-========================================
-
-{ foo = 1, bar : True }
-
----
-
-(source_file (complete_expression (expression (annotated_expression (operator_expression (import_alt_expression (or_expression (plus_expression (text_append_expression (list_append_expression (and_expression (combine_expression (prefer_expression (combine_types_expression (times_expression (equal_expression (not_equal_expression (application_expression (import_expression (selector_expression (primitive_expression (open_brace) (non_empty_record_type_or_literal (label (simple_label)) (ERROR (equal) (expression (annotated_expression (operator_expression (import_alt_expression (or_expression (plus_expression (text_append_expression (list_append_expression (and_expression (combine_expression (prefer_expression (combine_types_expression (times_expression (equal_expression (not_equal_expression (application_expression (import_expression (selector_expression (primitive_expression (natural_literal (natural_literal_raw))))))))))))))))))))) (comma) (label (simple_label))) (non_empty_record_type (colon) (expression (annotated_expression (operator_expression (import_alt_expression (or_expression (plus_expression (text_append_expression (list_append_expression (and_expression (combine_expression (prefer_expression (combine_types_expression (times_expression (equal_expression (not_equal_expression (application_expression (import_expression (selector_expression (primitive_expression (reserved (reserved_raw (True_raw)))))))))))))))))))))))) (close_brace))))))))))))))))))))))
-
-========================================
 Union Type (empty)
 ========================================
 

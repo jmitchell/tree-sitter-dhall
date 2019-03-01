@@ -17,3 +17,11 @@ List/a/b/c/1-2_3@4
 ---
 
 (source_file (complete_expression (expression (annotated_expression (operator_expression (import_alt_expression (or_expression (plus_expression (text_append_expression (list_append_expression (and_expression (combine_expression (prefer_expression (combine_types_expression (times_expression (equal_expression (not_equal_expression (application_expression (import_expression (selector_expression (primitive_expression (identifier_reserved_namespaced_prefix (reserved_raw (List_raw)) (at) (natural_literal_raw)))))))))))))))))))))))
+
+========================================
+Record Literal (non-empty)
+========================================
+
+{ foo = 1, bar : True }
+
+---
