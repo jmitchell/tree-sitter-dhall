@@ -90,6 +90,10 @@ module.exports = grammar({
     // ; according to the ordering of alternatives. That is, the order of evaluation,
     // ; of the alternatives is left-to-right.,
     // ;,
+
+    // TODO: Add a corpus test case for this and consider how to
+    // convey the left-to-right alternation preference to tree-sitter.
+
     // ; For example, the grammar for single quoted string literals is:,
     // ;,
     // ;     single-quote-continue =,
@@ -153,6 +157,11 @@ module.exports = grammar({
     // ; left-associative and all operators are left-associative when they are not,
     // ; parenthesized.,
     // ;,
+
+    // TODO: Consider how to test whether tree-sitter behaves this way
+    // and, if not, whether it can be persuaded to through a
+    // mechanical grammar translation.
+
     // ; Additionally, try alternatives in an order that minimizes backtracking,
     // ; according to the following rule:,
     // ;,

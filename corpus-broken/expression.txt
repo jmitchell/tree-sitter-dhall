@@ -1,0 +1,26 @@
+========================================
+Let (nested with multiple `in`)
+========================================
+
+let x = e1 in let y = e2 in e3
+
+---
+
+(source_file (complete_expression (expression
+  (let (let_raw)) (label (simple_label)) (equal)
+    (expression (annotated_expression (operator_expression (import_alt_expression (or_expression (plus_expression (text_append_expression (list_append_expression (and_expression (combine_expression (prefer_expression (combine_types_expression (times_expression (equal_expression (not_equal_expression (application_expression (import_expression (selector_expression (primitive_expression (identifier (label (simple_label))))))))))))))))))))))
+  (in (in_raw))
+  (let (let_raw)) (label (simple_label)) (equal)
+    (expression (annotated_expression (operator_expression (import_alt_expression (or_expression (plus_expression (text_append_expression (list_append_expression (and_expression (combine_expression (prefer_expression (combine_types_expression (times_expression (equal_expression (not_equal_expression (application_expression (import_expression (selector_expression (primitive_expression (identifier (label (simple_label))))))))))))))))))))))
+  (in (in_raw))
+    (expression (annotated_expression (operator_expression (import_alt_expression (or_expression (plus_expression (text_append_expression (list_append_expression (and_expression (combine_expression (prefer_expression (combine_types_expression (times_expression (equal_expression (not_equal_expression (application_expression (import_expression (selector_expression (primitive_expression (identifier (label (simple_label)))))))))))))))))))))))))
+
+========================================
+Let (label containing `in`)
+========================================
+
+let x = binary in e2
+
+---
+
+(source_file (complete_expression (expression (let (let_raw)) (label (simple_label)) (equal) (expression (annotated_expression (operator_expression (import_alt_expression (or_expression (plus_expression (text_append_expression (list_append_expression (and_expression (combine_expression (prefer_expression (combine_types_expression (times_expression (equal_expression (not_equal_expression (application_expression (import_expression (selector_expression (primitive_expression (identifier (label (simple_label)))))))))))))))))))))) (in (in_raw)) (expression (annotated_expression (operator_expression (import_alt_expression (or_expression (plus_expression (text_append_expression (list_append_expression (and_expression (combine_expression (prefer_expression (combine_types_expression (times_expression (equal_expression (not_equal_expression (application_expression (import_expression (selector_expression (primitive_expression (identifier (label (simple_label)))))))))))))))))))))))))
